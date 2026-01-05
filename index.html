@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Arpita 💖</title>
+
+<style>
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background: black;
+}
+
+/* ===== PAGE SYSTEM ===== */
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== PAGE 1 BACKGROUND ===== */
+#page1 {
+  background:
+    radial-gradient(circle at top, #ffb6c1, transparent 60%),
+    linear-gradient(135deg, #1a0026, #330033, #660066);
+  animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove {
+  0% { background-position: left; }
+  100% { background-position: right; }
+}
+
+/* ===== SPARKLING NAME RAIN ===== */
+.sparkle-name {
+  position: absolute;
+  font-size: 14px;
+  color: rgba(255,182,193,0.9);
+  animation: fall 7s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+/* ===== MAIN NAME ===== */
+.main-name {
+  font-size: 80px;
+  font-weight: 900;
+  background: linear-gradient(
+    90deg,
+    red, orange, yellow, lime, cyan, blue, violet
+  );
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 4s infinite;
+  text-shadow: 0 0 30px rgba(255,255,255,0.9);
+}
+
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 400%; }
+}
+
+/* ===== NEXT BUTTON ===== */
+.next-btn {
+  margin-top: 60px;
+  padding: 18px 45px;
+  font-size: 22px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 25px pink;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ===== PAGE 2 ===== */
+#page2 {
+  background: radial-gradient(circle at top, #222, #000);
+  color: white;
+}
+
+/* ===== 3D DIAMOND EARRING ===== */
+.earring-container {
+  position: relative;
+  width: 200px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+.hook {
+  width: 8px;
+  height: 60px;
+  background: gold;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.diamond {
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(30deg);
+  animation: rotateDiamond 6s infinite linear;
+}
+
+@keyframes rotateDiamond {
+  0% { transform: rotateX(20deg) rotateY(0deg); }
+  100% { transform: rotateX(20deg) rotateY(360deg); }
+}
+
+.face {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #e6f7ff, #ffffff);
+  opacity: 0.9;
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 0 25px cyan;
+}
+
+.face:nth-child(1) { transform: rotateY(0deg) translateZ(70px); }
+.face:nth-child(2) { transform: rotateY(90deg) translateZ(70px); }
+.face:nth-child(3) { transform: rotateY(180deg) translateZ(70px); }
+.face:nth-child(4) { transform: rotateY(-90deg) translateZ(70px); }
+.face:nth-child(5) { transform: rotateX(90deg) translateZ(70px); }
+.face:nth-child(6) { transform: rotateX(-90deg) translateZ(70px); }
+
+/* ===== NOTE ===== */
+.note {
+  max-width: 700px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+  line-height: 1.7;
+  color: #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="main-name">ARPITAAA 💖</div>
+  <button class="next-btn" onclick="nextPage()">🌸 Next 🌸</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="earring-container">
+    <div class="hook"></div>
+    <div class="diamond">
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+      <div class="face"></div>
+    </div>
+  </div>
+
+  <div class="note">
+    Arpita, this diamond earring shines beautifully,
+    but even its sparkle fades in front of you.
+    Your presence, your kindness, and your smile
+    make the world feel warmer and brighter.
+    You are more precious than any jewel,
+    more radiant than any diamond.
+    This earring is just a symbol—
+    because the real treasure is YOU 💎💖
+  </div>
+</div>
+
+<script>
+/* PAGE SWITCH */
+function nextPage() {
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
+}
+
+/* NAME SPARKLES */
+for (let i = 0; i < 60; i++) {
+  let s = document.createElement("div");
+  s.className = "sparkle-name";
+  s.innerText = "Arpita ✨";
+  s.style.left = Math.random() * 100 + "vw";
+  s.style.animationDelay = Math.random() * 5 + "s";
+  document.getElementById("page1").appendChild(s);
+}
+</script>
+
+</body>
+</html>
